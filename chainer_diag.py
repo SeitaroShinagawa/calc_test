@@ -27,9 +27,11 @@ def diag_part_batch_matmul(x): # use mask and batch_matmul calculation
 x = xp.asarray(np.random.rand(x_size,x_size),dtype=np.float32)
 cur = time.time()
 A = diag_part_elementwise(x)
+#print(A.data)
 print("time of diag_part_elementwise:",time.time()-cur)
 cur = time.time()
 B = diag_part_batch_matmul(x)
+#print(B.data)
 print("time of diag_part_batch_matmul:",time.time()-cur)
 
 """
