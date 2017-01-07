@@ -34,13 +34,34 @@ print("time of diag_part_batch_matmul:",time.time()-cur)
 
 """
 result
-cpumode with 10000x10000 matrix
+
+100x100 matrix
+#cpu
+$ python chainer_diag.py 100 -1
+time of diag_part_elementwise: 0.0002493858337402344
+time of diag_part_batch_matmul: 0.00036978721618652344
+#gpu
+$ python chainer_diag.py 100 0
+time of diag_part_elementwise: 0.10309004783630371
+time of diag_part_batch_matmul: 0.06094169616699219
+
+1000x1000 matrix
+#cpu
+$ python chainer_diag.py 1000 -1
+time of diag_part_elementwise: 0.0017409324645996094
+time of diag_part_batch_matmul: 0.0019404888153076172
+#gpu
+$ python chainer_diag.py 1000 0
+time of diag_part_elementwise: 0.10210251808166504
+time of diag_part_batch_matmul: 0.06030750274658203
+
+10000x10000 matrix
+#cpu
 $ python chainer_diag.py 10000 -1
 time of diag_part_elementwise: 0.11125564575195312
 time of diag_part_batch_matmul: 0.0674281120300293
-
-gpumode with 10000x10000 matrix
+#gpu
 $ python chainer_diag.py 10000 0
 time of diag_part_elementwise: 0.12932491302490234
 time of diag_part_batch_matmul: 0.1076195240020752
-
+"""
